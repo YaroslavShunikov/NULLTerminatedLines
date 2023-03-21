@@ -11,6 +11,9 @@ void shrink(char str[]);				//удаляет лишние пробелы из строки
 //bool is_palindrome(const char str[]);
 bool is_int_number(const char str[]);
 int to_int_number(const char str[]);
+bool is_bin_number(const char str[]);
+int  bin_to_dec(const char str[]);
+//bool is_hex_number(const char str[]);
 
 void main()
 {
@@ -33,7 +36,10 @@ void main()
 	shrink(str);
 	cout << str<< endl<<endl;
 	cout<<"Строка" << (is_int_number(str)?" ":"Не")<<"десятичное число" << endl;
-	to_int_number(str);
+	cout << to_int_number(str) << endl;
+	cout << "Строка" << (is_bin_number(str) ? " " : " НЕ ") << "двоичное число" << endl;
+	cout<<bin_to_dec(str)<<endl;
+	//cout << "Строка" << (is_hex_number(str) ? " " : " НЕ ") << "шестнадцатиричное число" << endl;
 }
 
 int StringLenght(const char* str)
@@ -102,8 +108,40 @@ int to_int_number(const char str[])
 
 			eva++;
 		}
+		return value;
 
-		cout << value << endl;
 	}
 	else return 0;
 }
+bool is_bin_number(const char str[])
+{
+	for (int i = 0; str[i]; i++)
+	{
+		if (str[i] != '1' && str[i] != '0')
+		{
+			return false;
+		}
+	}
+	return true;
+}
+int  bin_to_dec(const char str[])
+{
+	if (is_bin_number(str) == true)
+	{
+		return(to_int_number(str));
+	}
+	else return 0;
+}
+/*bool is_hex_number(const char str[])
+{
+	for (int i = 0; str[i]; i++)
+	{
+	
+		if ((str[i] < '0' || str[i] > '9') &&(str[i] < 'A' || str[i] > 'F'))
+			
+			{
+				return false;
+			}
+	}
+	return true;
+}*/

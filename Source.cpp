@@ -13,7 +13,7 @@ bool is_int_number(const char str[]);
 int to_int_number(const char str[]);
 bool is_bin_number(const char str[]);
 int  bin_to_dec(const char str[]);
-//bool is_hex_number(const char str[]);
+bool is_hex_number(const char str[]);
 
 void main()
 {
@@ -39,7 +39,7 @@ void main()
 	cout << to_int_number(str) << endl;
 	cout << "Строка" << (is_bin_number(str) ? " " : " НЕ ") << "двоичное число" << endl;
 	cout<<bin_to_dec(str)<<endl;
-	//cout << "Строка" << (is_hex_number(str) ? " " : " НЕ ") << "шестнадцатиричное число" << endl;
+	cout << "Строка" << (is_hex_number(str) ? " " : " НЕ ") << "шестнадцатиричное число" << endl;
 }
 
 int StringLenght(const char* str)
@@ -89,7 +89,7 @@ bool is_int_number(const char str[])
 int to_int_number(const char str[])
 {
 	
-	if (is_int_number(str) == true)
+	if (is_int_number(str) == true)//|| (is_hex_number(str)))
 	{
 		int n = StringLenght(str);
 		int value=((int)str[0]-48);
@@ -132,16 +132,16 @@ int  bin_to_dec(const char str[])
 	}
 	else return 0;
 }
-/*bool is_hex_number(const char str[])
+bool is_hex_number(const char str[])
 {
 	for (int i = 0; str[i]; i++)
 	{
 	
-		if ((str[i] < '0' || str[i] > '9') &&(str[i] < 'A' || str[i] > 'F'))
+		if ((str[i] < '0' || str[i] > '9') &&(str[i] < 'A' || str[i] > 'F')&&(str[i] < 'a' || str[i] > 'f'))
 			
 			{
 				return false;
 			}
 	}
 	return true;
-}*/
+}

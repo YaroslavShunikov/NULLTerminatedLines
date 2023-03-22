@@ -94,7 +94,7 @@ int to_int_number(const char str[])
 		int n = StringLenght(str);
 		int value=((int)str[0]-48);
 		int walle;
-		int eva = 1;
+		int ñ = 1;
 		for (int i = n-1; i>0; i--)
 		{
 			value *= 10;
@@ -103,10 +103,10 @@ int to_int_number(const char str[])
 		value+= ((int)str[n-1] - 48);
 		for (int i = n - 2; i > 0; i--)
 		{
-			walle = ((int)str[i]-48)*pow(10,eva);
+			walle = ((int)str[i]-48)*pow(10,ñ);
 			value += walle;
 
-			eva++;
+			ñ++;
 		}
 		return value;
 

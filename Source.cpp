@@ -71,7 +71,7 @@ void shrink(char str[])
 		while (str[i] == 32 && str[i + 1] == 32)
 		{
 			//цикл сдвига фрагмента массива
-			for (int j = i; str[j]; j++)
+			for (int j = i+1; str[j]; j++)
 			{
 				str[j] = str[j + 1];
 			}
@@ -89,12 +89,12 @@ bool is_int_number(const char str[])
 int to_int_number(const char str[])
 {
 	
-	if (is_int_number(str) == true)//|| (is_hex_number(str)))
+	if (is_int_number(str) == true)
 	{
 		int n = StringLenght(str);
 		int value=((int)str[0]-48);
 		int walle;
-		int с = 1;
+		int c = 1;
 		for (int i = n-1; i>0; i--)
 		{
 			value *= 10;
@@ -103,10 +103,10 @@ int to_int_number(const char str[])
 		value+= ((int)str[n-1] - 48);
 		for (int i = n - 2; i > 0; i--)
 		{
-			walle = ((int)str[i]-48)*pow(10,с);
+			walle = ((int)str[i]-48)*pow(10,c);
 			value += walle;
-
-			с++;
+			
+			c++;
 		}
 		return value;
 
@@ -124,11 +124,22 @@ bool is_bin_number(const char str[])
 	}
 	return true;
 }
-int  bin_to_dec(const char str[])
+int  bin_to_dec(const char str[])                           //Доделать
 {
+	int value=0, b=0;
+	int n = StringLenght(str);
+	int c = 0;
 	if (is_bin_number(str) == true)
 	{
-		return(to_int_number(str));
+		//return(to_int_number(str));
+		for (int i = n-1 ; i >= 0; i--)
+		{
+			
+			b=pow(2, i)*((int)str[c] - 48);
+			c++;
+			value += b;
+		}
+		return (value);
 	}
 	else return 0;
 }
